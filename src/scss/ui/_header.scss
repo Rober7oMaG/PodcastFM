@@ -24,10 +24,12 @@
         h1 {
             color: v.$white;
             font-size: 4.5rem;
+            text-align: center;
             
             @include m.tablet {
                 font-size: 6rem;
                 max-width: 50%;
+                text-align: left;
             }
 
             @include m.desktop {

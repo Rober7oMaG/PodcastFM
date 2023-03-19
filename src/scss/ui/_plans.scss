@@ -1,0 +1,88 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.plans {
+    background-color: v.$secondary;
+    text-align: center;
+
+    @include m.tablet {
+        text-align: left;
+    }
+
+    h2 {
+        @include m.borderedHeading(v.$white, v.$primary);
+    }
+
+    .description {
+        color: v.$white;
+    }
+}
+
+.our-plans {
+    display: flex;
+    flex-direction: column;
+
+    @include m.tablet {
+        flex-direction: row;
+        max-width: 80rem;
+        margin-inline: auto;
+        margin-block-start: 10rem;
+    }
+
+    .plan {
+        flex-grow: 1;
+        background-color: v.$white;
+        padding: 16rem 4rem 4rem 4rem;
+        border-bottom: 1px solid #E1E1E1;
+
+        @include m.tablet {
+            border: none;
+            transition: transform 300ms;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        &.starter {
+            @include m.backgroundIcon('../img/starter_icon.svg');
+        }
+
+        &.business {
+            order: -1;
+            background-color: v.$primary;
+            @include m.backgroundIcon('../img/business_icon.svg');
+
+            @include m.tablet {
+                order: unset;
+                margin-block: -5rem;
+                border-radius: 2rem;
+                background-position: 50% calc(2rem + 5rem);
+                padding-top: calc(16rem + 5rem);
+                z-index: 100;
+            }
+        }
+
+        &.pro {
+            @include m.backgroundIcon('../img/pro_icon.svg');
+        }
+
+        .price {
+            font-size: 1.8rem;
+            text-align: center;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .list {
+            li {
+                text-align: center;
+                margin-bottom: 2rem;
+
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}

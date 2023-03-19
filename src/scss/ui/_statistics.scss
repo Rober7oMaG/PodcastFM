@@ -1,0 +1,18 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.statistics {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    @include m.tablet {
+        display: block;
+        text-align: left;
+    }
+
+    h2 {
+        @include m.borderedHeading(v.$secondary, v.$primary);
+    }
+}
